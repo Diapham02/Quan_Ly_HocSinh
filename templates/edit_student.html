@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>Sửa học sinh</title>
+  <meta charset="UTF-8">
+  <title>Sửa học sinh</title>
 </head>
 <body>
-    <h1>Sửa học sinh</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sửa</button>
-    </form>
+  <h1>Sửa học sinh</h1>
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li {% if message.tags == 'success' %} class="success" {% else %} class="error" {% endif %} >
+          {{ message }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }} <button type="submit">Sửa học sinh</button>
+  </form>
 </body>
 </html>

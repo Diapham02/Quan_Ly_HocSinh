@@ -1,14 +1,45 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>Thêm học sinh</title>
+  <meta charset="UTF-8">
+  <title>Thêm học sinh</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
+  <div class="container">
     <h1>Thêm học sinh</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Thêm</button>
+    
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li {% if message.tags == 'success' %} class="success" {% else %} class="error" {% endif %} >
+            {{ message }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    
+    <form method="post" class="form">
+      {% csrf_token %}
+      <div class="input-group">
+        <label for="name">Họ tên:</label>
+        <input type="text" name="name" id="name" required placeholder="Nhập họ và tên">
+      </div>
+      <div class="input-group">
+        <label for="dob">Ngày sinh:</label>
+        <input type="date" name="dob" id="dob" required>
+      </div>
+      <div class="input-group">
+        <label for="grade">Khối:</label>
+        <input type="number" name="grade" id="grade" min="10" max="12" required placeholder="Từ 10 đến 12">
+      </div>
+      <div class="input-group">
+        <label for="classroom">Lớp:</label>
+        <input type="text" name="classroom" id="classroom" required placeholder="Nhập tên lớp">
+      </div>
+      <button type="submit" class="btn">Thêm học sinh</button>
     </form>
+  </div>
 </body>
 </html>
