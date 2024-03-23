@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thêm học sinh</title>
+</head>
+<body>
+    <h1>Thêm học sinh</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Thêm</button>
+    </form>
+</body>
+</html>

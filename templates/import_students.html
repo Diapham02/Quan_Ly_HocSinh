@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nhập dữ liệu học sinh từ file excel</title>
+</head>
+<body>
+    <h1>Nhập dữ liệu học sinh từ file excel</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Nhập dữ liệu</button>
+    </form>
+</body>
+</html>
