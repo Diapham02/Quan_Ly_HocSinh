@@ -1,50 +1,112 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Phần mềm quản lý điểm cho học sinh</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Phần mềm quản lý điểm cho học sinh</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Phần mềm quản lý điểm cho học sinh</h1>
-  </header>
-  <main>
-    <section class="section-1">
-      <h2>Tra cứu điểm</h2>
-      <p>Nhập mã học sinh:</p>
-        <label>
-            <input type="text" name="student_id">
-        </label>
-        <button type="submit">Search</button>
-    </section>
-    <section class="section-2">
-      <h2>Danh sách học sinh</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Tên học sinh</th>
-            <th>Mã học sinh</th>
-            <th>Ngày sinh</th>
-            <th>Khối</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for student in students %}
-            <tr>
-              <td>{{ student.name }}</td>
-              <td>{{ student.student_id }}</td>
-              <td>{{ student.dob }}</td>
-              <td>{{ student.grade }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </section>
-  </main>
-  <footer>
-    <p>Copyright by em Nong đẹp trai</p>
-  </footer>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Content Row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tra cứu điểm</h5>
+                                    <p class="card-text">Nhập mã học sinh:</p>
+                                    <input type="text" class="form-control" name="student_id">
+                                    <button type="submit" class="btn btn-primary mt-2">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Danh sách học sinh</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Tên học sinh</th>
+                                                <th scope="col">Mã học sinh</th>
+                                                <th scope="col">Ngày sinh</th>
+                                                <th scope="col">Khối</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for student in students %}
+                                                <tr>
+                                                    <td>{{ student.name }}</td>
+                                                    <td>{{ student.student_id }}</td>
+                                                    <td>{{ student.dob }}</td>
+                                                    <td>{{ student.grade }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright by em Nong đẹp trai</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+    <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
 </body>
+
 </html>
