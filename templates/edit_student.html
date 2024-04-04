@@ -1,28 +1,66 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <meta charset="UTF-8">
-  <title>Sửa học sinh</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Phần mềm quản lý điểm cho học sinh</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Sửa học sinh</a>
-  </nav>
-  <main class="container mt-4">
-    {% if messages %}
-      <div class="alert alert-info" role="alert">
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-      </div>
-    {% endif %}
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-primary">Sửa học sinh</button>
-    </form>
-  </main>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Quản lý điểm học sinh</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add_student' %}">Thêm học sinh</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'list_students' %}">Danh sách học sinh</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="title">Sửa học sinh</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="hidden" name="id" value="{{ student.id }}">
+                    <a href="{% url 'list_students' %}" class="btn btn-secondary mt-2">Quay lại</a>
+                    <button type="submit" class="btn btn-primary mt-2">Sửa</button>
+                    <a href="delete_student.html{{ student.id }}" class="btn btn-danger mt-2">Xóa</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

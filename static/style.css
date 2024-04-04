@@ -1,0 +1,55 @@
+body {
+    background-color: #ffffff; /* Màu nền trắc */
+    color: #007bff; /* Màu chữ xanh dương nhẹ */
+    font-family: Arial, sans-serif; /* Font chữ dễ đọc */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.search, .student-list {
+    background-color: #f8f9fa; /* Màu nền nhạt cho các khối chức năng */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
