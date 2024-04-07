@@ -1,7 +1,7 @@
 body {
-    background-color: #ffffff; /* Màu nền trắc */
-    color: #007bff; /* Màu chữ xanh dương nhẹ */
-    font-family: Arial, sans-serif; /* Font chữ dễ đọc */
+    background-color: #ffffff;
+    color: #007bff;
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -17,7 +17,7 @@ body {
 }
 
 .search, .student-list {
-    background-color: #f8f9fa; /* Màu nền nhạt cho các khối chức năng */
+    background-color: #f8f9fa;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -53,3 +53,19 @@ body {
     background-color: #0056b3;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-rounded {
+    border-radius: 50px; /* Điều chỉnh giá trị này để thay đổi độ bo của nút */
+    padding: 10px 20px; /* Điều chỉnh giá trị này để thay đổi kích thước của nút */
+}
+
+.nowrap {
+    white-space: nowrap;
+}

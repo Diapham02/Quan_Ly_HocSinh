@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Danh sách điểm
+{% endblock %}
+
+{% block content %}
+<h1>Danh sách điểm</h1>
+<div class="mb-3">
+    <a href="{% url 'list_scores_by_class' %}" class="btn btn-primary">Xem theo lớp học</a>
+    <a href="{% url 'list_scores_by_grade' %}" class="btn btn-primary">Xem theo khối</a>
+    <a href="{% url 'list_scores_by_student' %}" class="btn btn-primary">Xem theo mã học sinh</a>
+    <a href="{% url 'list_scores_by_subject' %}" class="btn btn-primary">Xem theo môn học</a>
+    <a href="{% url 'list_scores_by_type' %}" class="btn btn-primary">Xem theo loại điểm</a>
+</div>
+<!-- Rest of the page content -->
+{% endblock %}

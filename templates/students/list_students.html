@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Trang quản lí học sinh
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tra cứu học sinh</h5>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="stu_id">Nhập mã học sinh:</label>
+                        <input type="text" id="stu_id" name="stu_id" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Search</button>
+                </form>
+                {% if student_info %}
+                    <h2 class="mt-4">Thông tin chi tiết học sinh:</h2>
+                    <p>Mã học sinh: {{ student_info.stu_id }}</p>
+                    <p>Tên: {{ student_info.name }}</p>
+                    <p>Ngày sinh: {{ student_info.dob }}</p>
+                    <p>Khối: {{ student_info.grade_level }}</p>
+                    <p>Lớp: {{ student_info.classroom }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Danh sách học sinh</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tên học sinh</th>
+                            <th scope="col">Mã học sinh</th>
+                            <th scope="col">Lớp</th>
+                            <th scope="col">Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                            <tr>
+                                <td>{{ student.name }}</td>
+                                <td>{{ student.stu_id }}</td>
+                                <td>{{ student.classroom }}</td>
+                                <td>
+                                    <a href="{% url 'edit_student' student.pk %}">Chỉnh sửa</a> |
+                                    <a href="{% url 'delete_student' student.pk %}">Xóa</a>
+                                </td>
+                            </tr>     
+                        {% endfor %}
+                        <a href="{% url 'add_student' %}" class="btn btn-primary mt-2">Thêm</a>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

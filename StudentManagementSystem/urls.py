@@ -16,6 +16,7 @@ urlpatterns = [
     path('delete_score/<int:pk>/', views.delete_score, name='delete_score'),
     path('calculate_average/<str:stu_id>/', views.calculate_average, name='calculate_average'),
     path('list_scores/', views.list_scores, name='list_scores'),
+    path('manage_score/', views.manage_scores, name='manage_scores'),
     # Tra cuu diem
     path('search_score/', views.search_score, name='search_score'),
 ]

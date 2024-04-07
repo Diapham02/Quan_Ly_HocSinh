@@ -43,8 +43,8 @@ class Score(models.Model):
 
     student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="Học sinh")
     subject = models.CharField(max_length=255, verbose_name="Môn học")
-    score = models.FloatField(verbose_name="Điểm")
+    score_value = models.FloatField(verbose_name="Điểm")
     score_type = models.CharField(max_length=10, choices=SCORE_TYPES, default='15m', verbose_name="Loại điểm")
 
     def __str__(self):
-        return f"{self.student.name} - {self.subject} - {self.score}"
+        return f"{self.student.name} - {self.subject} - {self.score_value}"
